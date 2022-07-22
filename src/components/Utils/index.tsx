@@ -10,3 +10,7 @@ export interface ContainerProps {
 export function Container(props: ContainerProps) {
   return <Styled.Container {...props}>{props.children}</Styled.Container>;
 }
+
+export function Background() {
+  return <Styled.Background />;
+}
