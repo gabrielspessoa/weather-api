@@ -1,12 +1,24 @@
+/// <reference types="vite-plugin-svgr/client" />
+
 import { CloudRain, Drop, Thermometer, Wind } from 'phosphor-react';
 import * as Styled from './styles';
-import sunIcon from '../../assets/icons/sun.json';
+import { ReactComponent as DayIcon } from '../../assets/icons/test/dayC.svg';
+import { ReactComponent as NightIcon } from '../../assets/icons/test/nightC.svg';
+import { ReactComponent as RainyIcon } from '../../assets/icons/test/rainyC.svg';
 import { WeatherData } from '../../types/General';
 import { memo } from 'react';
 
 interface WeatherInfoProps {
   loading?: boolean;
   data?: WeatherData | null;
+}
+
+function Icon(props: any) {
+  return (
+    <Styled.IconContainer>
+      <img src={`http://openweathermap.org/img/wn/${props.icon}@4x.png`}></img>
+    </Styled.IconContainer>
+  );
 }
 
 const WeatherInfo = memo(function WeatherInfo(props: WeatherInfoProps) {
@@ -20,13 +32,15 @@ const WeatherInfo = memo(function WeatherInfo(props: WeatherInfoProps) {
                 <Styled.IconShimmer />
               </Styled.IconShimmerWrapper>
             ) : (
-              <Styled.LottieContainer
-                animationData={sunIcon}
-                play
-                loop
-                speed={0.4}
-                rendererSettings={{ preserveAspectRatio: 'xMidYMid slice' }}
-              />
+              // <Styled.LottieContainer
+              //   animationData={sunIcon}
+              //   datatype=''
+              //   play
+              //   loop
+              //   speed={0.4}
+              //   rendererSettings={{ preserveAspectRatio: 'xMidYMid slice' }}
+              // />
+              <Icon icon={props.data?.weatherIcon} />
             )}
             <Styled.DegreeWrapper>
               {props.loading ? (
@@ -59,7 +73,8 @@ const WeatherInfo = memo(function WeatherInfo(props: WeatherInfoProps) {
               </>
             ) : (
               <>
-                {props.data?.city}, {props.data?.state}
+                {props.data?.city != '' ? `${props.data?.city}, ` : null}
+                {props.data?.state}
                 <br />
                 {props.data?.country}
               </>
@@ -82,7 +97,7 @@ const WeatherInfo = memo(function WeatherInfo(props: WeatherInfoProps) {
                 </>
               )}
             </Styled.InfoItem>
-            <Styled.InfoItem>
+            {/* <Styled.InfoItem>
               {props.loading ? (
                 <>
                   <Styled.SmallIconShimmer />
@@ -95,7 +110,7 @@ const WeatherInfo = memo(function WeatherInfo(props: WeatherInfoProps) {
                   <span>1%</span>
                 </>
               )}
-            </Styled.InfoItem>
+            </Styled.InfoItem> */}
             <Styled.InfoItem>
               {props.loading ? (
                 <>

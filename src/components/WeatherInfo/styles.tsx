@@ -29,9 +29,19 @@ export const IconDegreeContainer = styled.div`
   gap: 24px;
 `;
 
-export const LottieContainer = styled(Lottie)`
+export const IconContainer = styled.div`
   width: 192px;
   height: 192px;
+  box-sizing: border-box;
+  padding: 16px;
+
+  & svg {
+    height: 100%;
+  }
+
+  & img {
+    height: 100%;
+  }
 `;
 
 export const DegreeWrapper = styled.span`
@@ -63,6 +73,10 @@ export const InfoItem = styled.div`
   position: relative;
   gap: 12px;
   font-size: 18px;
+
+  & span {
+    white-space: nowrap;
+  }
 `;
 
 export const ToolTip = styled.span`

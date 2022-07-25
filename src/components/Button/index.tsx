@@ -1,8 +1,10 @@
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, memo } from 'react';
 import * as Styled from './styles';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLElement> {}
 
-export default function Button(props: ButtonProps) {
+const Button = memo(function Button(props: ButtonProps) {
   return <Styled.Button {...props}>{props.children}</Styled.Button>;
-}
+});
+
+export default Button;

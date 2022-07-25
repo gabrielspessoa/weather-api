@@ -12,6 +12,7 @@ export const Input = styled.input`
   box-sizing: border-box;
   font-family: 'Lato';
   line-height: 46px;
+  transition: 0.15s border ease-in-out;
 
   &:hover {
     border: 2px solid #aaa;

@@ -5,13 +5,14 @@ import { Background, Container } from './components/Utils';
 import { MagnifyingGlass } from 'phosphor-react';
 import axios from 'axios';
 import { ChangeEvent, useEffect, useState } from 'react';
+import { WeatherData } from './types/General';
 
 export default function App() {
   // Base API call URL without query param
 
   const [inputText, setInputText] = useState('');
   const [city, setCity] = useState('');
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(true);
 
   // Get location by IP
@@ -63,6 +64,7 @@ export default function App() {
               temp: Math.floor(weatherData.main.temp),
               humidity: weatherData.main.humidity,
               wind: (weatherData.wind.speed * 3.6).toFixed(2),
+              weatherIcon: weatherData.weather[0].icon,
               city: cityInfo ? cityInfo.city : '',
               state: cityInfo ? cityInfo.principalSubdivision : '',
               country: cityInfo ? cityInfo.countryName : '',
@@ -89,6 +91,7 @@ export default function App() {
               temp: Math.floor(weatherData.main.temp),
               humidity: weatherData.main.humidity,
               wind: (weatherData.wind.speed * 3.6).toFixed(2),
+              weatherIcon: weatherData.weather[0].icon,
               city: cityInfo ? cityInfo.city : '',
               state: cityInfo ? cityInfo.principalSubdivision : '',
               country: cityInfo ? cityInfo.countryName : '',
