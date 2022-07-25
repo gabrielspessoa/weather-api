@@ -127,7 +127,7 @@ export default function App() {
         <Input
           placeholder='Nome da cidade. Ex: Umuarama, PR'
           onChange={handleInputChange}
-          onKeyDown={(e) => {
+          onKeyDown={(e: any) => {
             if (e.key === 'Enter') {
               handleButtonClick();
             }

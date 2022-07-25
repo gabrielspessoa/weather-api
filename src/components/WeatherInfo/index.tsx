@@ -1,14 +1,15 @@
 import { CloudRain, Drop, Thermometer, Wind } from 'phosphor-react';
 import * as Styled from './styles';
-import sunIcon from '../../../public/assets/icons/sun.json';
+import sunIcon from '../../assets/icons/sun.json';
 import { WeatherData } from '../../types/General';
+import { memo } from 'react';
 
 interface WeatherInfoProps {
   loading?: boolean;
   data?: WeatherData | null;
 }
 
-export default function WeatherInfo(props: WeatherInfoProps) {
+const WeatherInfo = memo(function WeatherInfo(props: WeatherInfoProps) {
   return (
     <>
       <Styled.MainContainer>
@@ -114,4 +115,6 @@ export default function WeatherInfo(props: WeatherInfoProps) {
       </Styled.MainContainer>
     </>
   );
-}
+});
+
+export default WeatherInfo;

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import * as Styled from './styles';
 
 export interface ContainerProps {
@@ -7,10 +8,10 @@ export interface ContainerProps {
   margin?: string;
 }
 
-export function Container(props: ContainerProps) {
+export const Container = memo(function Container(props: ContainerProps) {
   return <Styled.Container {...props}>{props.children}</Styled.Container>;
-}
+});
 
-export function Background() {
+export const Background = memo(function Background() {
   return <Styled.Background />;
-}
+});
