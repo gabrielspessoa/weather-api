@@ -45,7 +45,7 @@ const WeatherInfo = memo(function WeatherInfo(props: WeatherInfoProps) {
             <Styled.DegreeWrapper>
               {props.loading ? (
                 <>
-                  <Styled.SmallIconShimmer />{' '}
+                  <Styled.SmallIconShimmer />
                   <Styled.TextShimmer
                     height={60}
                     width={78}

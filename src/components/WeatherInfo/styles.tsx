@@ -5,7 +5,7 @@ export const MainContainer = styled.div`
   display: flex;
   justify-content: space-between;
   background: rgba(255, 255, 255, 0.123);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
