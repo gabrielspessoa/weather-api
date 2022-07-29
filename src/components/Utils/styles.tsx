@@ -6,6 +6,14 @@ export const Container = styled.div<ContainerProps>`
   justify-content: ${(props) => (props.centered ? 'center' : 'start')};
   gap: ${(props) => (props.gap ? props.gap + 'px' : 0)};
   margin: ${(props) => (props.margin ? props.margin : '18px 144px')};
+
+  @media (max-width: 1180px) {
+    margin: 18px 120px;
+  }
+
+  @media (max-width: 768px) {
+    margin: 18px 24px;
+  }
 `;
 
 export const Background = styled.div`

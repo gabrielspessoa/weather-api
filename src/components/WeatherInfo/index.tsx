@@ -26,41 +26,81 @@ const WeatherInfo = memo(function WeatherInfo(props: WeatherInfoProps) {
     <>
       <Styled.MainContainer>
         <Styled.SectionContainer>
-          <Styled.IconDegreeContainer>
-            {props.loading ? (
-              <Styled.IconShimmerWrapper>
-                <Styled.IconShimmer />
-              </Styled.IconShimmerWrapper>
-            ) : (
-              // <Styled.LottieContainer
-              //   animationData={sunIcon}
-              //   datatype=''
-              //   play
-              //   loop
-              //   speed={0.4}
-              //   rendererSettings={{ preserveAspectRatio: 'xMidYMid slice' }}
-              // />
-              <Icon icon={props.data?.weatherIcon} />
-            )}
-            <Styled.DegreeWrapper>
+          <Styled.IconInfoContainer>
+            <Styled.InfoContainer>
               {props.loading ? (
-                <>
-                  <Styled.SmallIconShimmer />
-                  <Styled.TextShimmer
-                    height={60}
-                    width={78}
-                    margin='0 0 0 12px'
-                  />
-                </>
+                <Styled.IconShimmerWrapper>
+                  <Styled.IconShimmer />
+                </Styled.IconShimmerWrapper>
               ) : (
-                <>
-                  <Thermometer size={28} weight='bold' />
-                  {props.data?.temp}
-                  <sup>ºC</sup>
-                </>
+                <Icon icon={props.data?.weatherIcon} />
               )}
-            </Styled.DegreeWrapper>
-          </Styled.IconDegreeContainer>
+              <Styled.DegreeWrapper>
+                {props.loading ? (
+                  <>
+                    <Styled.SmallIconShimmer />
+                    <Styled.TextShimmer
+                      height={60}
+                      width={78}
+                      margin='0 0 0 12px'
+                    />
+                  </>
+                ) : (
+                  <>
+                    <Thermometer size={28} weight='bold' />
+                    {props.data?.temp}
+                    <sup>ºC</sup>
+                  </>
+                )}
+              </Styled.DegreeWrapper>
+            </Styled.InfoContainer>
+
+            <Styled.InfoList>
+              <Styled.InfoItem>
+                {props.loading ? (
+                  <>
+                    <Styled.SmallIconShimmer />
+                    <Styled.TextShimmer height={18} />
+                  </>
+                ) : (
+                  <>
+                    <Styled.ToolTip>Humidade</Styled.ToolTip>
+                    <Drop size={30} />
+                    <span>{props.data?.humidity}%</span>
+                  </>
+                )}
+              </Styled.InfoItem>
+              {/* <Styled.InfoItem>
+                        {props.loading ? (
+                          <>
+                            <Styled.SmallIconShimmer />
+                            <Styled.TextShimmer height={18} />
+                          </>
+                        ) : (
+                          <>
+                            <Styled.ToolTip>Precipitação</Styled.ToolTip>
+                            <CloudRain size={30} />
+                            <span>1%</span>
+                          </>
+                        )}
+                      </Styled.InfoItem> */}
+              <Styled.InfoItem>
+                {props.loading ? (
+                  <>
+                    <Styled.SmallIconShimmer />
+                    <Styled.TextShimmer height={18} width={66} />
+                  </>
+                ) : (
+                  <>
+                    <Styled.ToolTip>Vento</Styled.ToolTip>
+                    <Wind size={30} />
+                    <span>{props.data?.wind} km/h</span>
+                  </>
+                )}
+              </Styled.InfoItem>
+            </Styled.InfoList>
+          </Styled.IconInfoContainer>
+
           <Styled.LocationWrapper>
             {props.loading ? (
               <>
@@ -80,52 +120,6 @@ const WeatherInfo = memo(function WeatherInfo(props: WeatherInfoProps) {
               </>
             )}
           </Styled.LocationWrapper>
-        </Styled.SectionContainer>
-        <Styled.SectionContainer>
-          <Styled.InfoList>
-            <Styled.InfoItem>
-              {props.loading ? (
-                <>
-                  <Styled.SmallIconShimmer />
-                  <Styled.TextShimmer height={18} />
-                </>
-              ) : (
-                <>
-                  <Styled.ToolTip>Humidade</Styled.ToolTip>
-                  <Drop size={30} />
-                  <span>{props.data?.humidity}%</span>
-                </>
-              )}
-            </Styled.InfoItem>
-            {/* <Styled.InfoItem>
-              {props.loading ? (
-                <>
-                  <Styled.SmallIconShimmer />
-                  <Styled.TextShimmer height={18} />
-                </>
-              ) : (
-                <>
-                  <Styled.ToolTip>Precipitação</Styled.ToolTip>
-                  <CloudRain size={30} />
-                  <span>1%</span>
-                </>
-              )}
-            </Styled.InfoItem> */}
-            <Styled.InfoItem>
-              {props.loading ? (
-                <>
-                  <Styled.SmallIconShimmer />
-                  <Styled.TextShimmer height={18} width={66} />
-                </>
-              ) : (
-                <>
-                  <Styled.ToolTip>Vento</Styled.ToolTip>
-                  <Wind size={30} />
-                  <span>{props.data?.wind} km/h</span>
-                </>
-              )}
-            </Styled.InfoItem>
-          </Styled.InfoList>
         </Styled.SectionContainer>
       </Styled.MainContainer>
     </>

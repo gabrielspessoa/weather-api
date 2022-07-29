@@ -13,20 +13,41 @@ export const MainContainer = styled.div`
   color: #fff;
   padding: 30px 60px;
   border-radius: 30px;
-  height: 400px;
+  /* height: 400px; */
   width: 100%;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 30px 24px;
+  }
 `;
 
 export const SectionContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
-export const IconDegreeContainer = styled.div`
+export const IconInfoContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+`;
+
+export const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
+
+  @media (max-width: 1024px) {
+    gap: 0;
+    width: 100%;
+    justify-content: space-evenly;
+  }
 `;
 
 export const IconContainer = styled.div`
@@ -63,7 +84,12 @@ export const LocationWrapper = styled.span`
 export const InfoList = styled.div`
   display: flex;
   gap: 60px;
-  margin-top: 54px;
+
+  @media (max-width: 1024px) {
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 36px;
+  }
 `;
 
 export const InfoItem = styled.div`
